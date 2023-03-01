@@ -23,7 +23,7 @@ class BookmarksController < ApplicationController
 
   def create
     the_bookmark = Bookmark.new
-session[:user_id]
+    the_bookmark.user_id = session[:user_id]
     the_bookmark.movie_id = params.fetch("query_movie_id")
 
     if the_bookmark.valid?
